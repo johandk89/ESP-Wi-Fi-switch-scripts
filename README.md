@@ -1,8 +1,7 @@
-# ESP-Wi-Fi-Switch
-ESP-Wi-Fi Switch running on NodeMcu
+# ESP8266 Wi-Fi Switch
+ESP8266 based Wi-Fi Switch running on NodeMcu
 
-
-###Flash NodeMCU
+##Flash NodeMCU
 Make sure GPIO pin 0 is grounded
 
 ```shell
@@ -15,7 +14,7 @@ make ESPPORT="/dev/tty.usbserial-A90049VU" flash
 Replace the ESPPORT with your serial connection to the ESP
 
 
-####Upload Lua scripts
+##Upload Lua scripts
 ```
 ./upload.sh
 ```
