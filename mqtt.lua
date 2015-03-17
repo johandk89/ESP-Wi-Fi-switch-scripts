@@ -1,5 +1,4 @@
 -- https://primalcortex.wordpress.com/2015/02/06/nodemcu-and-mqtt-how-to-start/
-
 -- *************************************************************************************************
 -- Setup MQTT
 -- *************************************************************************************************
@@ -16,7 +15,7 @@ m:on("offline", function(con)
      print ("reconnecting...") 
      print(node.heap())
      tmr.alarm(1, 10000, 0, function()
-          m:connect("104.236.200.131", 1883, 0)
+          m:connect(MQTT_URL, MQTT_PORT, 0)
      end)
 end)
 
@@ -50,7 +49,7 @@ end)
 tmr.alarm(0, 1000, 1, function()
  if wifi.sta.status() == 5 then
      tmr.stop(0)
-     m:connect("104.236.200.131", 1883, 0, function(conn) 
+     m:connect(MQTT_URL, MQTT_PORT, 0, function(conn) 
           print("connected")
           m:subscribe("/mqtt/topic/0",0, function(conn) 
                -- m:publish("/topic","hello",0,0, function(conn) print("sent") end)

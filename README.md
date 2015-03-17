@@ -7,6 +7,7 @@ Make sure GPIO pin 0 is grounded
 
 `git clone https://github.com/nodemcu/nodemcu-firmware.git
 cd nodemcu-firmware
+make
 make ESPPORT="/dev/tty.usbserial-A90049VU" flash`
 
 Replace the ESPPORT with your serial connection to the ESP
@@ -14,6 +15,7 @@ Replace the ESPPORT with your serial connection to the ESP
 
 ####Upload Lua scripts
 `./upload.sh`
+Reboot device
 
 ###License
 The MIT License (MIT)

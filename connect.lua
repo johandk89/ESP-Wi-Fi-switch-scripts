@@ -1,19 +1,11 @@
 -- *************************************************************************************************
--- User config
--- *************************************************************************************************
-
--- ap_SSID="WifiSwitch"
--- ap_PASSWORD="WifiSwitch"
-
-
--- *************************************************************************************************
 -- Setup AP
 -- *************************************************************************************************
 
 wifi.setmode(wifi.STATIONAP)
 cfg={}
-cfg.ssid="WifiSwitch"
-cfg.pwd="WifiSwitch"
+cfg.ssid=ap_SSID
+cfg.pwd=ap_PASSWORD
 wifi.ap.config(cfg)
 print(wifi.ap.getip())
 
@@ -65,7 +57,7 @@ conn:on("receive",function(conn,payload)
 	-- html = html .. '<p>pwd:<input name="pwd" value="" /></p>'
 	-- html = html .. '<p><input type="submit" value="config" /></p>'
 	--
-	conn:close()
+	conn:send("{status: connected}")
 end)
 
 conn:on("sent",function(conn) conn:close() end)
