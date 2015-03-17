@@ -5,16 +5,20 @@ ESP-Wi-Fi Switch running on NodeMcu
 ###Flash NodeMCU
 Make sure GPIO pin 0 is grounded
 
-`git clone https://github.com/nodemcu/nodemcu-firmware.git
+```shell
+git clone https://github.com/nodemcu/nodemcu-firmware.git
 cd nodemcu-firmware
 make
-make ESPPORT="/dev/tty.usbserial-A90049VU" flash`
+make ESPPORT="/dev/tty.usbserial-A90049VU" flash
+````
 
 Replace the ESPPORT with your serial connection to the ESP
 
 
 ####Upload Lua scripts
-`./upload.sh`
+```
+./upload.sh`
+```
 Reboot device
 
 ###License
