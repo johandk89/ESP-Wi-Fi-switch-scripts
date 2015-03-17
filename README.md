@@ -17,7 +17,7 @@ Replace the ESPPORT with your serial connection to the ESP
 
 ####Upload Lua scripts
 ```
-./upload.sh`
+./upload.sh
 ```
 Reboot device
 
