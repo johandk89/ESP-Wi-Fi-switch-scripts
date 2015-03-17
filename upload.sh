@@ -1,4 +1,8 @@
-./luatool.py --port /dev/tty.usbserial-A90049VU --src connect.lua --dest connect.lua --baud 9600
-./luatool.py --port /dev/tty.usbserial-A90049VU --src connected.lua --dest connected.lua --baud 9600
-./luatool.py --port /dev/tty.usbserial-A90049VU --src mqtt.lua --dest mqtt.lua --baud 9600
-./luatool.py --port /dev/tty.usbserial-A90049VU --src init.lua --dest init.lua --baud 9600
+$BAUD_RATE=9600
+$PORT=/dev/tty.usbserial-A90049VU
+
+
+for file in *.lua
+do
+	./luatool.py --port $PORT --src $file --dest $file --baud $BAUD_RATE
+done

@@ -1,3 +1,15 @@
+-- *************************************************************************************************
+-- User config
+-- *************************************************************************************************
+
+-- ap_SSID="WifiSwitch"
+-- ap_PASSWORD="WifiSwitch"
+
+
+-- *************************************************************************************************
+-- Setup AP
+-- *************************************************************************************************
+
 wifi.setmode(wifi.STATIONAP)
 cfg={}
 cfg.ssid="WifiSwitch"
@@ -5,12 +17,15 @@ cfg.pwd="WifiSwitch"
 wifi.ap.config(cfg)
 print(wifi.ap.getip())
 
--- file.remove("connect.lua")
--- file.open("connect.lua","w")
+
 print("starting server")
 print(wifi.ap.getip())
 ssid = ""
 pwd = ""
+
+-- *************************************************************************************************
+-- Start HTTP server
+-- *************************************************************************************************
 
 srv=net.createServer(net.TCP) srv:listen(80,function(conn)
 conn:on("receive",function(conn,payload)
@@ -50,12 +65,10 @@ conn:on("receive",function(conn,payload)
 	-- html = html .. '<p>pwd:<input name="pwd" value="" /></p>'
 	-- html = html .. '<p><input type="submit" value="config" /></p>'
 	--
-	-- conn:send( "".. html .." ssid was :" .. ssid .. " pwd was : " .. pwd)
+	conn:close()
 end)
 
 conn:on("sent",function(conn) conn:close() end)
 
 end)
-
--- file.close()
 

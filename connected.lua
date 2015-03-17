@@ -1,6 +1,6 @@
-
--- file.remove("connected.lua")
--- file.open("connected.lua","w")
+-- *************************************************************************************************
+-- Connect to users Wi-Fi
+-- *************************************************************************************************
 
 print("starting connected server")
 print(wifi.sta.getip())
@@ -18,4 +18,3 @@ conn:on("sent",function(conn) conn:close() end)
 
 end)
 
--- file.close()
